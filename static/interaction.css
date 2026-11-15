@@ -1,0 +1,21 @@
+.interaction-comparison{padding:2px 12px 5px}.interaction-comparison td,.interaction-comparison th{padding:5px 7px}.interaction-comparison tr[data-kind='ai'] td:first-child{color:#df3348}.interaction-comparison tr[data-kind='human'] td:first-child{color:#2676e8}.market-line{display:flex;justify-content:space-between;margin:3px 12px 6px;font-size:10px;color:#8391a2}.market-line b{color:#bc3448}.analysis-pane{grid-template-rows:minmax(350px,1.2fr) minmax(150px,1fr)}#path-view{margin:0 12px 5px;border:1px solid #e0e6ee;border-radius:4px;background:#fafbfd;flex-shrink:0}#path-view header{display:flex;justify-content:space-between;padding:5px 8px;gap:8px;font-size:10px;color:#6e7f94}#path-view canvas{height:100px;width:100%}#path-view small{display:block;padding:3px 8px;font-size:9px;color:#8c98a7}.chart-panel:has(#path-view:not([hidden])) .plot-wrap{min-height:95px}.timing-note{font-size:9px}#selected-point{max-height:50px;font-size:10px}.workspace-bar>div{gap:12px}.chart-controls button[aria-pressed='true']{background:#eff4ff;color:#245aa8}.chart-only .plot-wrap{min-height:150px}.chart-only #path-view canvas{height:180px}@media(max-height:700px){.analysis-pane{grid-template-rows:minmax(250px,1.5fr) minmax(100px,1fr)}.timing-note{display:none}.chart-panel:has(#path-view:not([hidden])) .interaction-comparison{display:none}#path-view canvas{height:65px}#path-view small{display:none}.chart-footer{font-size:10px;padding:3px 9px 6px}.chart-header h1{font-size:14px}.interaction-comparison th,.interaction-comparison td{padding:3px 6px}.workspace-bar>div{gap:8px;font-size:10px}}.retry-booking #retry-checkout{background:#245ca8;color:white}.retry-booking .result-actions{flex-wrap:wrap}
+.analysis-pane:has(#path-view:not([hidden])){grid-template-rows:minmax(480px,1.65fr) minmax(140px,.7fr)}
+.chart-panel:has(#path-view:not([hidden])) .interaction-comparison,.chart-panel:has(#path-view:not([hidden])) .timing-note{display:none}
+@media(max-height:700px){.analysis-pane:has(#path-view:not([hidden])){grid-template-rows:minmax(300px,1.7fr) minmax(80px,.55fr)}}
+
+body[data-mode='payment'] .log-panel{container-type:inline-size}.field-compact{display:none}
+@container(max-width:620px){
+ body[data-mode='payment'] .log-panel td,body[data-mode='payment'] .log-panel th{padding:5px 6px;font-size:10px}
+ body[data-mode='payment'] .log-panel tr>:nth-child(1),body[data-mode='payment'] .log-panel tr>:nth-child(4),body[data-mode='payment'] .log-panel tr>:nth-child(5),body[data-mode='payment'] .log-panel tr>:nth-child(8){display:none}
+ body[data-mode='payment'] .log-panel .log-empty td{display:table-cell}
+ .field-compact{display:block;font-size:8px;line-height:1.45;color:#8d9bae;margin-top:2px}
+ .field-actor{font-size:8px}tr[data-kind='ai'] .field-actor{color:#df3348}tr[data-kind='human'] .field-actor{color:#2676e8}
+ body[data-mode='payment'] .log-panel>header{padding:6px;gap:5px;flex-wrap:nowrap}
+ body[data-mode='payment'] .log-panel h2{font-size:11px;white-space:nowrap}
+ body[data-mode='payment'] .log-panel #delivery{display:none}
+ body[data-mode='payment'] .log-panel>header a{font-size:9px;margin-left:auto}
+ body[data-mode='payment'] .log-clear-button{padding:3px 4px;font-size:8px}
+ body[data-mode='payment'] .log-panel>footer{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:8px;padding:5px 6px}
+}
+@media(max-height:600px){body[data-mode='payment'] .interaction-comparison{display:none}}
+@container(max-width:620px){body[data-mode="payment"] .log-panel td,body[data-mode="payment"] .log-panel th{padding:3px 6px;line-height:11px}.field-compact{line-height:10px;margin-top:1px}}

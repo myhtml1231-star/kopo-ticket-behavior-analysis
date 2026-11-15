@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{'실시간 행동 분포' if chart_only else '예매 · 실시간 행동 관제'}}</title>
+<link rel="stylesheet" href="/static/presentation.css"></head>
+<body class="{{'chart-only' if chart_only else 'presentation'}}">
+{% if not chart_only %}
+<header class="workspace-bar"><b>I-Ticket <span>실시간 관제</span></b><div><span id="connection" role="status">연결 중</span><a href="/behavior" target="_blank" rel="noopener">그래프 분리 ↗</a>{% if kibana %}<a href="{{kibana}}" target="_blank" rel="noopener">Elastic ↗</a>{% endif %}</div></header>
+<main class="workspace"><section class="booking-pane"><iframe id="booking-frame" title="실제 예매 화면" src="/practice/intro?present=1"></iframe></section><div class="analysis-pane">
+{% endif %}
+<section class="chart-panel">
+ <header class="chart-header"><div><h1>실시간 행동 분포</h1><p>계정별 최신 점 1개 · 동일 계정은 합산</p></div><div class="chart-controls"><select id="session-filter" aria-label="표시할 계정"><option value="all">전체 계정</option></select><button id="clear-view">새 관측</button></div></header>
+ <div class="plot-wrap"><canvas id="behavior-chart" aria-label="X축 행동 속도 회/초, Y축 최근 30초 요청 수의 실시간 산점도" role="img"></canvas><div id="plot-empty">예매하면 실제 요청이 여기에 표시됩니다.</div><div id="point-tip" hidden></div></div>
+ <footer class="chart-footer"><div class="legend"><span><i class="normal"></i>일반</span><span><i class="watch"></i>주의</span><span><i class="review"></i>검토·차단</span></div><span id="point-count">0점</span><button id="formula" aria-expanded="false">축 기준</button></footer>
+ <p id="formula-text" hidden>속도 = 최근 30초 행동 요청 간격 중앙값의 역수. 첫 요청은 속도 0. 요청 수 = 해당 시점 직전 30초의 행동 요청 수. 상태·좌석 자동 조회는 제외하며, 한 요청의 여러 로그는 1회로 계산합니다. 색상은 기존 규칙의 결과이며 학습된 AI 판정이 아닙니다.</p>
+ <div id="selected-point" hidden></div>
+</section>
+{% if not chart_only %}
+<section class="log-panel"><header><h2>최근 행동 로그</h2><span id="delivery">저장 연결 확인 중</span>{% if kibana %}<a href="{{kibana}}" target="_blank" rel="noopener">실제 Elastic ↗</a>{% endif %}</header><div class="log-scroll"><table><thead><tr><th>시간</th><th>계정</th><th>행동 / 좌석</th><th>속도</th><th>30초 요청</th><th>판정</th></tr></thead><tbody id="behavior-logs"></tbody></table></div><footer>최근 60건 · 행을 누르면 그래프에서 요청 근거 확인</footer></section>
+</div></main>
+{% endif %}
+<script src="/static/presentation.js"></script></body></html>

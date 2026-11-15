@@ -1,0 +1,14 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>I-Ticket 결제</title><link rel="stylesheet" href="/static/checkout.css"></head><body>
+<nav><b>I-Ticket</b><span>03 주문·결제</span><button id="new-checkout">다시 예매</button></nav>
+<main><header class="checkout-title"><span>03</span><div><h1>예매자 정보와 결제</h1><p>KOPO</p></div></header>
+<div class="checkout-grid"><form id="checkout-form" autocomplete="off"><section><h2>예매자 정보</h2><p class="form-note">예매자 정보를 입력해주세요.</p>
+<label>이름<input id="field-name" data-field="name" required maxlength="40" placeholder="이름을 입력해주세요"></label>
+<label>연락처<input id="field-phone" data-field="phone" required maxlength="30" placeholder="010-0000-0000"></label>
+<label>이메일<input id="field-email" data-field="email" type="email" required maxlength="80" placeholder="kopo@example.com"></label>
+<label>주소<input id="field-address" data-field="address" required maxlength="160" placeholder="주소를 입력해주세요"></label></section>
+<section><h2>결제 수단</h2><div class="payment-method">✓ 전액 할인</div><p class="form-note">결제금액이 0원이므로 추가 결제가 필요하지 않습니다.</p></section>
+<button id="pay" type="submit">0원 결제하기</button><p id="checkout-status" role="status">예매 방식을 선택하세요.</p></form>
+<aside><h2>예매 내역</h2><div class="ticket-art">I-Ticket<small>2026 LIVE</small></div><b>KOPO CONCERT</b><p>2026.02.08 · 19:00</p><p id="checkout-seat">A구역 1열 6번</p><dl><dt>티켓</dt><dd>0원</dd><dt>수수료</dt><dd>0원</dd><dt>총 결제금액</dt><dd><strong>0원</strong></dd></dl><div class="role-badge" id="checkout-role">예매자 정보</div></aside></div></main>
+<dialog id="checkout-start"><small>03 주문·결제</small><h2>예매 방식 선택</h2><fieldset><label><input type="radio" name="role" value="human" checked>직접 예매</label><label><input type="radio" name="role" value="ai">AI 예매</label></fieldset><p>예매자 정보를 입력하고 결제를 진행해주세요.</p><button id="checkout-begin">시작</button></dialog>
+<dialog id="checkout-result"><span id="checkout-verdict"></span><h2>예매 성공</h2><p id="checkout-summary"></p><dl><dt>판정 근거</dt><dd id="checkout-evidence"></dd></dl><small>입력 패턴 분석 결과입니다.</small><button id="checkout-replay">다시 예매</button></dialog>
+<div id="checkout-cursor" hidden><svg width="25" height="30" viewBox="0 0 25 30"><path d="M2 2V24L8 18L13 28L17 26L12 16H22Z" fill="#df3348" stroke="white" stroke-width="2"/></svg><span>AI</span></div><script src="/static/checkout.js"></script></body></html>

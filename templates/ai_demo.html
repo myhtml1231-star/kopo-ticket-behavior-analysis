@@ -1,0 +1,20 @@
+<section id="ai-demo" class="ai-demo" hidden aria-label="AI 예매">
+  <header class="ai-demo-head">
+    <div><b>AI 예매</b><span class="ai-demo-label">계정 · 접근 정책</span></div>
+    <div class="ai-controls"><span id="ai-account"></span><button id="ai-replay">다시 재생</button><button id="ai-stop">중지</button><button id="ai-exit">예매 방식</button></div>
+  </header>
+  <nav class="ai-scenes" aria-label="예매 방식">
+    <button data-ai-scene="captcha"><span>01</span> 보안문자 일괄 입력</button>
+    <button data-ai-scene="seats"><span>02</span> 일정 간격 반복 예매</button>
+    <button data-ai-scene="parallel"><span>03</span> 브라우저 5개 동시 요청</button>
+  </nav>
+  <div class="ai-live-line"><span id="ai-live-dot"></span><b id="ai-live-text" role="status">예매 준비</b><span id="ai-live-count"></span></div>
+  <div id="ai-canvas" class="ai-canvas"></div>
+  <footer class="ai-evidence"><b>탐지 기록</b><div id="ai-event-trace" aria-live="polite"></div><a href="/" target="_blank" rel="noopener">로그 관제 ↗</a></footer>
+</section>
+<div id="ai-cursor" class="ai-cursor" hidden aria-hidden="true"><svg viewBox="0 0 30 38"><path d="M3 2L24 23L15 24L21 35L15 38L9 27L3 34Z" fill="#111827" stroke="white" stroke-width="2"/></svg><span>AI</span></div>
+<div id="ai-click-ring" class="ai-click-ring" hidden aria-hidden="true"></div>
+<dialog id="ai-ban" class="ai-ban" aria-labelledby="ai-ban-title">
+  <div class="ai-ban-top"><span class="ai-ban-symbol">!</span><span>AI BAN</span><small>계정 차단</small></div>
+  <div class="ai-ban-body"><h2 id="ai-ban-title">비정상 접근을 차단했습니다</h2><p id="ai-ban-reason"></p><ul id="ai-ban-evidence"></ul><div class="ai-ban-account"><span>차단 계정</span><b id="ai-ban-account"></b></div><div class="ai-ban-actions"><button id="ai-ban-close">화면 확인</button><button id="ai-ban-next">다음 단계</button></div></div>
+</dialog>
